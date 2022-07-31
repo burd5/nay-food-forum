@@ -29,9 +29,16 @@ app.get('/',(request, response)=>{
     .catch(error => console.error(error))
 })
 
+app.get('/getFavorites', (request, response) => {
+    db.collection('favorites').find().toArray()
+    .then(data => {
+        response.render('index.ejs', {info: data})
+    })
+})
+
 app.post('/addRestaurant', (request, response) => {
     db.collection('nay').insertOne({restaurantName: request.body.restaurantName,
-    cuisineType: request.body.cuisineType, likes: 0})
+    cuisineType: request.body.cuisineType, rating: request.body.rating, likes: 0})
     .then(result => {
         console.log('Restaurant Added')
         response.redirect('/')
@@ -40,7 +47,7 @@ app.post('/addRestaurant', (request, response) => {
 })
 
 app.put('/addOneLike', (request, response) => {
-    db.collection('nay').updateOne({restaurantName: request.body.restaurantNameS, cuisineType: request.body.cuisineTypeS,likes: request.body.likesS},{
+    db.collection('nay').updateOne({restaurantName: request.body.restaurantNameS, cuisineType: request.body.cuisineTypeS, rating: request.body.ratingS, likes: request.body.likesS},{
         $set: {
             likes:request.body.likesS + 1
           }
