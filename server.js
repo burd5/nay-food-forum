@@ -30,8 +30,8 @@ app.get('/',(request, response)=>{
 })
 
 app.post('/addRestaurant', (request, response) => {
-    db.collection('nay').insertOne({stageName: request.body.stageName,
-    birthName: request.body.birthName, likes: 0})
+    db.collection('nay').insertOne({restaurantName: request.body.restaurantName,
+    cuisineType: request.body.cuisineType, likes: 0})
     .then(result => {
         console.log('Restaurant Added')
         response.redirect('/')
@@ -40,7 +40,7 @@ app.post('/addRestaurant', (request, response) => {
 })
 
 app.put('/addOneLike', (request, response) => {
-    db.collection('rappers').updateOne({stageName: request.body.stageNameS, birthName: request.body.birthNameS,likes: request.body.likesS},{
+    db.collection('nay').updateOne({restaurantName: request.body.restaurantNameS, cuisineType: request.body.cuisineTypeS,likes: request.body.likesS},{
         $set: {
             likes:request.body.likesS + 1
           }
@@ -56,11 +56,11 @@ app.put('/addOneLike', (request, response) => {
 
 })
 
-app.delete('/deleteRapper', (request, response) => {
-    db.collection('rappers').deleteOne({stageName: request.body.stageNameS})
+app.delete('/deleteRestaurant', (request, response) => {
+    db.collection('nay').deleteOne({restaurantName: request.body.restaurantNameS})
     .then(result => {
-        console.log('Rapper Deleted')
-        response.json('Rapper Deleted')
+        console.log('Restaurant Deleted')
+        response.json('Restaurant Deleted')
     })
     .catch(error => console.error(error))
 

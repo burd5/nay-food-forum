@@ -15,16 +15,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nay's Food Forum</title>
 </head>
 <body>
     <h1>Nay's Food Forum</h1>
     <h2>Denver Food Spots</h2>
-    <ul class="rappers">
+    <ul class="restaurants">
     <% for(let i=0; i < info.length; i++) {%>
-        <li class="rapper">
-            <span><%= info[i].stageName %></span>
-            <span><%= info[i].birthName %></span>
+        <li class="restaurant">
+            <span><%= info[i].restaurantName %></span>
+            <span><%= info[i].cuisineType %></span>
             <span><%= info[i].likes %></span>
             <span class='fa fa-thumbs-up'></span>
             <span class='fa fa-trash'></span>
@@ -35,8 +35,8 @@
     <h2>Add A Food Rec:</h2>
 
     <form action="/addRestaurant" method="POST">
-        <input type="text" placeholder="Restaurant Name" name="stageName">
-        <input type="text" placeholder="Cuisine Type" name="birthName">
+        <input type="text" placeholder="Restaurant Name" name="restauarantName">
+        <input type="text" placeholder="Cuisine Type" name="cuisineType">
         <input type="submit">
     </form>
     

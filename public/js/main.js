@@ -9,16 +9,16 @@ Array.from(thumbText).forEach((element)=>{
     element.addEventListener('click', addLike)
 })
 
-async function deleteRapper(){
-    const sName = this.parentNode.childNodes[1].innerText
-    const bName = this.parentNode.childNodes[3].innerText
+async function deleteRestaurant(){
+    const rName = this.parentNode.childNodes[1].innerText
+    const cType = this.parentNode.childNodes[3].innerText
     try{
-        const response = await fetch('deleteRapper', {
+        const response = await fetch('deleteRestaurant', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'stageNameS': sName,
-              'birthNameS': bName
+              'restaurantNameS': rName,
+              'cuisineTypeS': cType
             })
           })
         const data = await response.json()
@@ -31,16 +31,16 @@ async function deleteRapper(){
 }
 
 async function addLike(){
-    const sName = this.parentNode.childNodes[1].innerText
-    const bName = this.parentNode.childNodes[3].innerText
+    const rName = this.parentNode.childNodes[1].innerText
+    const cType = this.parentNode.childNodes[3].innerText
     const tLikes = Number(this.parentNode.childNodes[5].innerText)
     try{
         const response = await fetch('addOneLike', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'stageNameS': sName,
-              'birthNameS': bName,
+              'restaurantNameS': rName,
+              'cTypeS': cType,
               'likesS': tLikes
             })
           })
