@@ -5,6 +5,11 @@ const PORT = 2121
 require('dotenv').config()
 
 
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 let db,
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'food-options'
@@ -14,12 +19,6 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         console.log(`Connected to ${dbName} Database`)
         db = client.db(dbName)
     })
-    
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-
 
 app.get('/',(request, response)=>{
     db.collection('nay').find().sort({likes: -1}).toArray()
@@ -29,14 +28,13 @@ app.get('/',(request, response)=>{
     .catch(error => console.error(error))
 })
 
-/*app.get('/getFavorites', (request, response) => {
-    db.collection('favorites').find().toArray()
-    .then(data => {
-        response.render(db.collection('favorites'));
-    })
-    .catch(error => console.error(error))
-})
-*/
+app.get('/addFavorites', (request, response) => {
+    db.collection('favorites').find({}).toArray((err, result) => {
+        if(err) throw err
+        response.send(result)
+    });
+});
+
 
 
 app.post('/addRestaurant', (request, response) => {
