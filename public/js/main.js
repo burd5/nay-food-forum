@@ -60,8 +60,12 @@ async function addLike(){
     }
 }
 
-async function findFavorites(){
-    let searchValue = favoriteFoods.value
-    let collection = db.collection('food-options').find(searchValue)
-    await collection.forEach(console.log)
+function findFavorites(){
+    let searchValue = document.getElementById('favoriteFoods').value
+    const db = client.db('food-options')
+    const coll = db.collecton('favorites')
+    let searchDatabase = coll.find({
+        turkeyProvolone: true,
+    })
+    searchDatabase.forEach(console.log('x'))
 }
