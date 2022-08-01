@@ -29,13 +29,12 @@ app.get('/',(request, response)=>{
 })
 
 app.get('/addFavorites', (request, response) => {
-    db.collection('favorites').find({}).toArray((err, result) => {
-        if(err) throw err
-        response.send(result)
-    });
+    db.collection('favorites').find({}).toArray()
+        .then(result =>{
+            response.send(result);
+        })
+        .catch(error => console.error(error))
 });
-
-
 
 app.post('/addRestaurant', (request, response) => {
     db.collection('nay').insertOne({restaurantName: request.body.restaurantName,

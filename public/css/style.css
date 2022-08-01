@@ -1,5 +1,6 @@
 body{
-    font-family: 'Roboto Flex', 'Sans-Serif'
+    font-family: 'Roboto Flex', 'Sans-Serif';
+    text-align: center
 }
 
 h1{
@@ -13,4 +14,10 @@ h2{
     font-size: 28px;
     font-weight: 200;
     letter-spacing: 2px;
+    text-align: center;
+}
+
+.restaurant{
+    display: flex;
+    justify-content: space-around;
 }
