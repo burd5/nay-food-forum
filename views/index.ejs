@@ -51,25 +51,15 @@
     
     <h2>Find Nay's Favorites</h2>
 
-    <form action="getFavorites" method="POST">
+    <form action="" method="GET">
         <select placeholder="Choose One" name="favoriteFoods">
             <option value="shrimpFriedRice">Shrimp Fried Rice</option>
             <option value="turkeyProvolone">Turkey Provolone Sandwich</option>
             <option value="burger">Burger</option>
             <option value="flamingHotCheetoes">Flaming Hot Cheetoes</option>
         </select>
-        <input type="submit">
+        <input id="favoritesSearch" type="submit">
     </form>
-
-    <ul class="favorites">
-        <% for(let i=0; i < info.length; i++) {%>
-            <li class="favorite">
-                <span><%= info[i].restaurantName %></span>
-                <span><%= info[i].address %></span>
-                <span><%= info[i].dishDescription %></span>
-            </li>
-        <% } %>
-    </ul>
 
     <script src='js/main.js'></script>
 </body>

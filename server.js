@@ -29,12 +29,15 @@ app.get('/',(request, response)=>{
     .catch(error => console.error(error))
 })
 
-app.get('/getFavorites', (request, response) => {
+/*app.get('/getFavorites', (request, response) => {
     db.collection('favorites').find().toArray()
     .then(data => {
-        response.render('index.ejs', {info: data})
+        response.render(db.collection('favorites'));
     })
+    .catch(error => console.error(error))
 })
+*/
+
 
 app.post('/addRestaurant', (request, response) => {
     db.collection('nay').insertOne({restaurantName: request.body.restaurantName,

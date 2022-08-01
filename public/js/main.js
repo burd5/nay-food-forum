@@ -1,5 +1,6 @@
 const deleteText = document.querySelectorAll('.fa-trash')
 const thumbText = document.querySelectorAll('.fa-thumbs-up')
+const favoritesButton = document.getElementById('favoritesSearch')
 
 Array.from(deleteText).forEach((element)=>{
     element.addEventListener('click', deleteRestaurant)
@@ -8,6 +9,8 @@ Array.from(deleteText).forEach((element)=>{
 Array.from(thumbText).forEach((element)=>{
     element.addEventListener('click', addLike)
 })
+
+favoritesSearch.addEventListener('click', findFavorites)
 
 async function deleteRestaurant(){
     const rName = this.parentNode.childNodes[1].innerText
@@ -55,4 +58,10 @@ async function addLike(){
     }catch(err){
         console.log(err)
     }
+}
+
+async function findFavorites(){
+    let searchValue = favoriteFoods.value
+    let collection = db.collection('food-options').find(searchValue)
+    await collection.forEach(console.log)
 }
