@@ -10,7 +10,7 @@ Array.from(thumbText).forEach((element)=>{
     element.addEventListener('click', addLike)
 })
 
-favoritesSearch.addEventListener('click', findFavorites)
+favoritesButton.addEventListener('click', findFavorites)
 
 async function deleteRestaurant(){
     const rName = this.parentNode.childNodes[1].innerText
@@ -62,10 +62,8 @@ async function addLike(){
 
 function findFavorites(){
     let searchValue = document.getElementById('favoriteFoods').value
-    const db = client.db('food-options')
-    const coll = db.collecton('favorites')
-    let searchDatabase = coll.find({
-        turkeyProvolone: true,
-    })
-    searchDatabase.forEach(console.log('x'))
+    const db = client.db('food-options');
+    const coll = db.collecton('favorites');
+    let searchDatabase = coll.find(searchValue);
+    searchDatabase.forEach(console.log('x'));
 }
