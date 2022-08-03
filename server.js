@@ -21,20 +21,13 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     })
 
 app.get('/',(request, response)=>{
-    db.collection('nay').find().sort({likes: -1}).toArray()
+    db.collection('nay').find().sort({rating: -1}).toArray()
     .then(data => {
         response.render('index.ejs', { info: data })
     })
     .catch(error => console.error(error))
 })
 
-app.get('/addFavorites', (request, response) => {
-    db.collection('favorites').find({}).toArray()
-        .then(result =>{
-            response.send(result);
-        })
-        .catch(error => console.error(error))
-});
 
 app.post('/addRestaurant', (request, response) => {
     db.collection('nay').insertOne({restaurantName: request.body.restaurantName,

@@ -22,42 +22,34 @@
     <title>Nay's Food Forum</title>
 </head>
 <body>
-    <h1><em>Nay's Food Forum</em></h1>
+    <section class="border">
+    <h1><em>Nay's Food Review</em></h1>
     <h2>Denver Food Spots</h2>
-    
-    <ol class="restaurants">
+
     <% for(let i=0; i < info.length; i++) {%>
-        <li class="restaurant">
-            <span><%= info[i].restaurantName %></span>
-            <span><%= info[i].cuisineType %></span>
-            <span><%= info[i].rating %></span>
-            <span><%= info[i].likes %></span>
+        <tr class="restaurant">
+            <td><%= info[i].restaurantName %></td>
+            <td><%= info[i].cuisineType %></td>
+            <td><%= info[i].rating %></td>
+            <td><%= info[i].likes %></td>
             <span class='fa fa-thumbs-up'></span>
             <span class='fa fa-trash'></span>
-        </li>
+        </tr>
     <% } %>
     </ol>
 
-    <h2>Add A Food Rec:</h2>
+    <h3>Add A Food Rec:</h2>
 
     <form action="/addRestaurant" method="POST">
         <input type="text" placeholder="Restaurant Name" name="restaurantName">
         <input type="text" placeholder="Cuisine Type" name="cuisineType">
         <input type="text" placeholder="Rating" name="rating">
-        <input type="submit">
+        <input id="button" type="submit">
     </form>
-    
-    <h2>Find Nay's Favorites</h2>
 
-    <form action="/addFavorites" method="GET">
-        <select placeholder="Choose One" name="favoriteFoods">
-            <option value="shrimpFriedRice">Shrimp Fried Rice</option>
-            <option value="turkeyProvolone">Turkey Provolone Sandwich</option>
-            <option value="burger">Burger</option>
-            <option value="flamingHotCheetoes">Flaming Hot Cheetoes</option>
-        </select>
-        <input id="favoritesSearch" type="submit">
-    </form>
+    <img src="http://www.google.com/logos/doodles/2021/dragon-boat-festival-2021-6753651837108963.2-2xa.gif" alt="gif"/>
+
+    </section>      
 
     <script src='js/main.js'></script>
 </body>

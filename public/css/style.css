@@ -1,23 +1,62 @@
 body{
     font-family: 'Roboto Flex', 'Sans-Serif';
-    text-align: center
+    text-align: center;
+    background-color: #fff;
 }
 
 h1{
     text-align: center;
-    font-size: 48px;
+    font-size: 54px;
     font-weight: 500;
     letter-spacing: 3px;
+    color: rgba(127,202,203);
 }
 
 h2{
-    font-size: 28px;
-    font-weight: 200;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-align: center;
+    text-decoration: underline;
+}
+h3{
+    font-size: 24px;
+    font-weight: 400;
     letter-spacing: 2px;
     text-align: center;
 }
 
+input{
+    border: 2px solid rgba(127,202,203);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#button{
+    background-color: white;
+    font-size: 18px;
+    width: 100px;
+}
+#button:hover{
+    background-color: rgba(252,238,193);
+    color: rgba(127,202,203);
+}
 .restaurant{
     display: flex;
     justify-content: space-around;
+}
+
+.fa-trash,
+.fa-thumbs-up{
+    color: black;
+}
+
+span{
+    font-size: 22px;
+}
+
+.border{
+    border: 5px solid rgba(127,202,203);
+    margin: 25px;
 }
