@@ -20,7 +20,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         db = client.db(dbName)
     })
 
-app.get('/',(request, response)=>{
+app.get('/data',(request, response)=>{
     db.collection('nay').find().sort({rating: -1}).toArray()
     .then(data => {
         response.render('index.ejs', { info: data })
@@ -34,7 +34,7 @@ app.post('/addRestaurant', (request, response) => {
     cuisineType: request.body.cuisineType, rating: request.body.rating, likes: 0})
     .then(result => {
         console.log('Restaurant Added')
-        response.redirect('/')
+        response.redirect('/data')
     })
     .catch(error => console.error(error))
 })
