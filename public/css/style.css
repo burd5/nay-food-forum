@@ -52,9 +52,6 @@ input{
     color: black;
 }
 
-span{
-    font-size: 22px;
-}
 
 .border{
     border: 5px solid rgba(127,202,203);

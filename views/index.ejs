@@ -25,16 +25,15 @@
     <section class="border">
     <h1><em>Nay's Food Review</em></h1>
     <h2>Denver Food Spots</h2>
-
+ 
+    <ol class="restaurant">
     <% for(let i=0; i < info.length; i++) {%>
-        <tr class="restaurant">
-            <td><%= info[i].restaurantName %></td>
-            <td><%= info[i].cuisineType %></td>
-            <td><%= info[i].rating %></td>
-            <td><%= info[i].likes %></td>
+            <li><%= info[i].restaurantName %></li>
+            <li><%= info[i].cuisineType %></li>
+            <li><%= info[i].rating %></li>
+            <li><%= info[i].likes %></li>
             <span class='fa fa-thumbs-up'></span>
             <span class='fa fa-trash'></span>
-        </tr>
     <% } %>
     </ol>
 
