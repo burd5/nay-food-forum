@@ -57,7 +57,7 @@ app.put('/addOneLike', (request, response) => {
 })
 
 app.delete('/deleteRestaurant', (request, response) => {
-    db.collection('nay').deleteOne({restaurantName: request.body.restaurantNameS})
+    db.collection('nay').deleteOne({restaurantName: request.body.restaurantNameS, cuisineType: request.body.cuisineTypeS, rating: request.body.ratingS, likes: request.body.likesS})
     .then(result => {
         console.log('Restaurant Deleted')
         response.json('Restaurant Deleted')

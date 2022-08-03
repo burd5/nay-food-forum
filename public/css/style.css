@@ -6,7 +6,7 @@ body{
 
 h1{
     text-align: center;
-    font-size: 54px;
+    font-size: 58px;
     font-weight: 500;
     letter-spacing: 3px;
     color: rgba(127,202,203);
@@ -45,13 +45,8 @@ input{
 .restaurant{
     display: flex;
     justify-content: space-around;
+    text-align: center;
 }
-
-.fa-trash,
-.fa-thumbs-up{
-    color: black;
-}
-
 
 .border{
     border: 5px solid rgba(127,202,203);

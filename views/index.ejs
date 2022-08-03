@@ -25,30 +25,31 @@
     <section class="border">
     <h1><em>Nay's Food Review</em></h1>
     <h2>Denver Food Spots</h2>
- 
-    <ol class="restaurant">
+
     <% for(let i=0; i < info.length; i++) {%>
-            <li><%= info[i].restaurantName %></li>
-            <li><%= info[i].cuisineType %></li>
-            <li><%= info[i].rating %></li>
-            <li><%= info[i].likes %></li>
+        <li class="restaurant">
+            <span class="column1"><%= info[i].restaurantName %></span>
+            <span class="column2"><%= info[i].cuisineType %></span>
+            <span class="column3"><%= info[i].rating %></span>
+            <span><%= info[i].likes %></span>
             <span class='fa fa-thumbs-up'></span>
             <span class='fa fa-trash'></span>
+        </li>
     <% } %>
     </ol>
 
     <h3>Add A Food Rec:</h2>
 
     <form action="/addRestaurant" method="POST">
-        <input type="text" placeholder="Restaurant Name" name="restaurantName">
-        <input type="text" placeholder="Cuisine Type" name="cuisineType">
-        <input type="text" placeholder="Rating" name="rating">
+        <input type="text" placeholder="Restaurant Name" name="restaurantName" autocomplete="off">
+        <input type="text" placeholder="Cuisine Type" name="cuisineType" autocomplete="off">
+        <input type="text" placeholder="Rating" name="rating" autocomplete="off">
         <input id="button" type="submit">
     </form>
 
     <img src="http://www.google.com/logos/doodles/2021/dragon-boat-festival-2021-6753651837108963.2-2xa.gif" alt="gif"/>
 
-    </section>      
+        </section>      
 
     <script src='js/main.js'></script>
 </body>

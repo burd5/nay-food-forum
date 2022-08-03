@@ -16,6 +16,7 @@ async function deleteRestaurant(){
     const rName = this.parentNode.childNodes[1].innerText
     const cType = this.parentNode.childNodes[3].innerText
     const rScore = this.parentNode.childNodes[5].innerText
+    const tLikes = Number(this.parentNode.childNodes[7].innerText)
     try{
         const response = await fetch('deleteRestaurant', {
             method: 'delete',
@@ -23,7 +24,8 @@ async function deleteRestaurant(){
             body: JSON.stringify({
               'restaurantNameS': rName,
               'cuisineTypeS': cType,
-              'ratingS': rScore
+              'ratingS': rScore,
+              'likesS': tLikes
             })
           })
         const data = await response.json()
